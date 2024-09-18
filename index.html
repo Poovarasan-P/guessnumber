@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+
+    <style>
+      
+        
+        /* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #c8c8d4;
+   
+    background-size: cover; /* Scale the image to cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed;
+}
+
+/* Container for the game */
+.game-container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+/* Game title styling */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Input focus effect */
+input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Result message styling */
+.result-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2ecc71; /* green for success */
+}
+
+/* Error or incorrect guess message */
+.error-message {
+    color: #e74c3c; /* red for wrong guess */
+}
+
+/* Responsive design for small screens */
+@media (max-width: 400px) {
+    .game-container {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+        
+        </style>
+</head>
+<body>
+<center>
+          
+<h1> Game Guessing Number</h1>
+<input  id="gn" type="number" placeholder="Enter your guess ">
+<button  onclick="check()">Check</button>
+<p id="result">you are right/wrong</p>
+<p id="score">Score:10</p>
+
+
+</center>
+
+<script>
+
+var gn = document.getElementById("gn")
+var result=document.getElementById("result")
+var score=document.getElementById("score")
+var randomnumber=Math.floor(Math.random()*10)+1
+totalscore=10
+function check()
+{
+    var enterednumber=gn.value
+    if(randomnumber==enterednumber)
+    {
+       console.log("Right")
+       result.textContent="Right"
+       alert("YOU WON...!")
+    }
+    else{
+        totalscore=totalscore-1
+        score.textContent="score:"+totalscore
+        result.textContent="Wrong"
+    }
+}
+
+
+</script>
+
+</body>
+</html>
